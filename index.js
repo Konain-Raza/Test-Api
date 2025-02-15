@@ -2,8 +2,10 @@ const express = require("express");
 const { YTDL } = require("ytdl-easy");
 
 const app = express();
-const port = 3000;
-
+const port = 300
+app.get("/", ()=>{
+    res.send("Welcome to the YouTube Video Downloader API!");
+})
 // Sample endpoint for the API to download a video
 app.get("/download", async (req, res) => {
   // Get the YouTube URL from the query parameters
