@@ -2,13 +2,13 @@ const express = require("express");
 const { YTDL } = require("ytdl-easy");
 
 const app = express();
-const port = 300
-app.get("/", (res)=>{
-    res.send("Welcome to the YouTube Video Downloader API!");
-})
-// Sample endpoint for the API to download a video
+const port = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the YouTube Video Downloader API!");
+});
+
 app.get("/download", async (req, res) => {
-  // Get the YouTube URL from the query parameters
   const yturl = req.query.url;
 
   if (!yturl) {
@@ -31,5 +31,8 @@ app.get("/download", async (req, res) => {
   }
 });
 
-// Start the server
-export default app;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+module.exports = app;
